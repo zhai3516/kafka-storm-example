@@ -1,0 +1,21 @@
+/imp/storm/bin/storm jar ./ChannelCode-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    com.cc.imp.ChannelTopology \
+    -workers 6\
+    -spountCount 16 \
+    -splitCount 10 \
+    -calCount 10 \
+    -hbaseCount 10 \
+    -tsdbCount 10 \
+    -transferCount 10 \
+    -name "hpcc-channel-code" \
+    -topic "channelCode" \
+    -group "hpcc-channel-code" \
+    -kafkazk "127.0.0.1:2181" \
+    -tsdburl "http://127.0.0.1:4242/api/put?details" \
+    -count "imp.channel.code.count" \
+    -ratio "imp.channel.code.ratio" \
+    -hbasezk "127.0.0.1" \
+    -master "127.0.0.1" \
+    -rootdir "hdfs://127.0.0.1:9000/hbase" \
+    -transferip "127.0.0.1" \
+    -transferport "8433" \
