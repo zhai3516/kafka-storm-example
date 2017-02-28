@@ -46,6 +46,8 @@ public class CalculateBolt extends BaseRichBolt{
 	public void execute(Tuple tuple) {	
 
 		this.saveMaps(tuple);
+		// TODO : Use a independent bolt to instead of this method
+		// This mechanism may lead to inaccurate if data is sparse
 		if(this.isNewTimeBucke(this.timestamp)){
 			logger.info("Crontab time: Emit maps !");
 			logger.info("Before clean , size is  : " + this.tsdbMap.size() + "-" + this.hbaseMap.size() + "-"
@@ -101,6 +103,7 @@ public class CalculateBolt extends BaseRichBolt{
 		 */		
 		
 		//save hbase map
+		// TODO: Use stringbuilder
         String hbaseRowKey = tuple.getStringByField("channel") + "#" + this.timestamp + "#" + tuple.getStringByField("code");//row-key 
         String colKey = tuple.getStringByField("device");//column-key : device
         String colValue = tuple.getStringByField("count") +"#"+tuple.getStringByField("total")+"#"+tuple.getStringByField("ratio");// value :count # tot

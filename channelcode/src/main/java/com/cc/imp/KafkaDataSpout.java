@@ -61,9 +61,11 @@ public class KafkaDataSpout extends BaseRichSpout {
 		ConsumerIterator<byte[], byte[]> iter = streams.get(0).iterator();
 		while(true){
 			while(iter.hasNext()){
-				UUID msgId = UUID.randomUUID();
+				
 				String s = new String(iter.next().message());
 				collector.emit(new Values(s));
+				 
+				UUID msgId = UUID.randomUUID();
 				this.pending.put(msgId, new Values(s));
 			}
 			try {
@@ -90,6 +92,7 @@ public class KafkaDataSpout extends BaseRichSpout {
 	}
 	
 	public void fail(Object msgId){
+		
 		logger.error(this.pending.get(msgId).toString() + " is loss !");
 		this.pending.remove(msgId);
 	}
