@@ -16,6 +16,5 @@ http://zhaif.us/index.php/2016/04/30/strom2/
 
 ps ：整个代码逻辑比较简单，包含kafka、storm、hbase、opentsdb的一些基本代码，是我刚接触storm时写的一些尝试性代码。槽点较多，请包涵~
 
-
 Email：
 zhai3516@163.com
