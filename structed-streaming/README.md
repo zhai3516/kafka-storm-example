@@ -1,4 +1,4 @@
-# Streaming Demos
+# Structed Streaming Demos
 
 一些 structed streaming 框架的实验、测试代码
 
