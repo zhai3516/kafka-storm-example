@@ -7,9 +7,9 @@
     -hbaseCount 10 \
     -tsdbCount 10 \
     -transferCount 10 \
-    -name "hpcc-channel-code" \
+    -name "channel-code-statistic" \
     -topic "channelCode" \
-    -group "hpcc-channel-code" \
+    -group "statistic_01" \
     -kafkazk "127.0.0.1:2181" \
     -tsdburl "http://127.0.0.1:4242/api/put?details" \
     -count "imp.channel.code.count" \
